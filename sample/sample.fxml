@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.TextField?>
 <GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="1" vgap="1">
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="1" vgap="1" style="-fx-background-color: lightblue">
 
     <BorderPane styleClass="gameBoard" fx:id="gameBoard">
         <center>
