@@ -38,7 +38,7 @@
 
             <Text styleClass="helpInfo" wrappingWidth="150">
                 <![CDATA[
-                Use arrow keys (←, ↑, →, ↓) keys for movement and rotating.
+                Use arrow keys (←, ↑, →, ↓,1,23,4) keys for movement and rotating.
                 ]]>
             </Text>
             <Text styleClass="helpInfo" wrappingWidth="150">
