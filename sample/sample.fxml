@@ -9,6 +9,7 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.shape.* ?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="1" vgap="1" style="-fx-background-color: lightblue">
 
@@ -31,7 +32,7 @@
                 </center>
             </BorderPane>
         </VBox>
-        <Button text="New Game" styleClass="ipad-dark-grey" prefWidth="140"/>
+        <Button text="New Game" styleClass="ipad-dark-grey" prefWidth="140" onAction="#beginClicked" fx:id="beginGame"/>
         <ToggleButton text="Pause" styleClass="ipad-dark-grey"  prefWidth="140"
                       fx:id="pauseButton"/>
         <VBox fx:id="helpBox">
@@ -58,4 +59,7 @@
         <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="gameOver"/>
 
     </Group>
+
+    <Rectangle GridPane.rowIndex="0" GridPane.columnIndex="0" width="20" height="10" fill="blueviolet"/>
+
 </GridPane>
