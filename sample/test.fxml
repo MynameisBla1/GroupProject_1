@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.chart.LineChart?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="sample.Controller"
+          prefHeight="550.0" prefWidth="400.0" style="-fx-background-color: lightblue" gridLinesVisible="true">
+
+    <VBox alignment="TOP_LEFT">
+        <Label text="Score:" styleClass="scoreClass"/>
+        <Text text="Text" fx:id="scoreValue" styleClass="scoreClass" />
+    </VBox>
+    <Rectangle GridPane.columnIndex="5" GridPane.rowIndex="5" width="300" height="450" fill="lightgrey"/>
+
+
+
+</GridPane>

@@ -9,6 +9,7 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.shape.* ?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="1" vgap="1" style="-fx-background-color: lightblue">
 
@@ -18,8 +19,8 @@
         </center>
     </BorderPane>
 
-    <VBox layoutX="243" layoutY="20" alignment="CENTER" styleClass="vbox">
-        <VBox alignment="CENTER">
+    <VBox layoutX="243" layoutY="400" alignment="TOP_LEFT" styleClass="vbox">
+        <VBox alignment="TOP_LEFT">
             <Label text="Score:" styleClass="scoreClass"/>
             <Text text="Text" fx:id="scoreValue" styleClass="scoreClass"/>
         </VBox>
@@ -31,10 +32,12 @@
                 </center>
             </BorderPane>
         </VBox>
-        <Button text="New Game" styleClass="ipad-dark-grey" prefWidth="140"/>
+        <Button text="Start Game" styleClass="ipad-dark-grey" prefWidth="140"
+                onAction="#changeScreen" fx:id="beginGame"/>
         <ToggleButton text="Pause" styleClass="ipad-dark-grey"  prefWidth="140"
-                      fx:id="pauseButton"/>
+                      fx:id="pauseButton" onAction="#changeScreen"/>
         <VBox fx:id="helpBox">
+            <Text text="How to play:"/>
 
             <Text styleClass="helpInfo" wrappingWidth="150">
                 <![CDATA[
@@ -54,8 +57,6 @@
 
         </VBox>
     </VBox>
-    <Group fx:id="groupNotification" layoutX="14" layoutY="203">
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="gameOver"/>
 
-    </Group>
+
 </GridPane>

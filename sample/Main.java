@@ -10,9 +10,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 400, 550));
+        primaryStage.setTitle("Tetris Game Clone");
+        Scene scene = new Scene(root,400,550);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
