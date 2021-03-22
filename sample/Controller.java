@@ -46,9 +46,5 @@ public class Controller implements Initializable {
 
     }
 
-    Shape a = new Shape() {
-        Rectangle v = new Rectangle(2,5);
-        Rectangle h = new Rectangle(1,6);
-    };
 
 }
