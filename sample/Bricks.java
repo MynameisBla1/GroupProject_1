@@ -28,25 +28,25 @@ public class Bricks{
 
         switch (name) {
             case "j":
-                color = Color.SLATEGRAY;
+                color = Color.HOTPINK;
                 break;
             case "l":
-                color = Color.DARKGOLDENROD;
+                color = Color.INDIANRED;
                 break;
             case "o":
-                color = Color.INDIANRED;
+                color = Color.LIGHTGOLDENRODYELLOW;
                 break;
             case "s":
                 color = Color.FORESTGREEN;
                 break;
             case "t":
-                color = Color.CADETBLUE;
+                color = Color.DARKBLUE;
                 break;
             case "z":
-                color = Color.HOTPINK;
+                color = Color.PAPAYAWHIP;
                 break;
             case "i":
-                color = Color.SANDYBROWN;
+                color = Color.ORANGERED;
                 break;
 
         }

@@ -19,7 +19,7 @@
           xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="1" vgap="20" style="-fx-background-color: lightblue">
     <BorderPane styleClass="gameBoard" fx:id="gameBoard">
         <center>
-            <GridPane fx:id="gamePanel" hgap="1" vgap="1" layoutY="40" layoutX="50"/>
+            <GridPane fx:id="gamePanel" hgap="1" vgap="20" layoutY="40" layoutX="50"/>
         </center>
     </BorderPane>
     <VBox alignment="CENTER">
