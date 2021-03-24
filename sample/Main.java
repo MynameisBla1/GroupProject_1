@@ -20,7 +20,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application{
     // The variables
     public static final int MOVE = 25;
     public static final int SIZE = 25;
@@ -28,12 +28,12 @@ public class Main extends Application {
     public static int YMAX = SIZE * 24;
     public static int[][] MESH = new int[XMAX / SIZE][YMAX / SIZE];
     private static Pane group = new Pane();
-    private static Bricks object;
+    private static sample.Bricks object;
     private static Scene scene = new Scene(group, XMAX + 150, YMAX);
     public static int score = 0;
     private static int top = 0;
     private static boolean game = true;
-    private static Bricks nextObj = Controller.makeRect();
+    //private static sample.Bricks nextObj = sample.Controller.makeRect();
     private static int linesNo = 0;
 
     @Override
