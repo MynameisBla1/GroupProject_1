@@ -205,7 +205,7 @@ public class Bricks {
                     MoveLeft(d);
                     MoveUp(d);
                     MoveUp(d);
-                   changeForm();
+                    changeForm();
                     break;
                 }
                 if (f == 3 && cB(a, -1, 1) && cB(c, 1, 1) && cB(d, 2, 2)) {
@@ -229,7 +229,7 @@ public class Bricks {
                     MoveRight(d);
                     MoveDown(d);
                     MoveDown(d);
-                   changeForm();
+                    changeForm();
                     break;
                 }
                 break;
@@ -303,7 +303,7 @@ public class Bricks {
                     MoveDown(c);
                     MoveDown(d);
                     MoveDown(d);
-                   changeForm();
+                    changeForm();
                     break;
                 }
                 if (f == 3 && cB(a, -1, -1) && cB(c, -1, 1) && cB(d, 0, 2)) {
@@ -323,7 +323,7 @@ public class Bricks {
                     MoveDown(c);
                     MoveDown(d);
                     MoveDown(d);
-                   changeForm();
+                    changeForm();
                     break;
                 }
                 break;
@@ -335,7 +335,7 @@ public class Bricks {
                     MoveLeft(d);
                     MoveLeft(c);
                     MoveUp(c);
-                 changeForm();
+                    changeForm();
                     break;
                 }
                 if (f == 2 && cB(a, 1, -1) && cB(d, -1, 1) && cB(c, 1, 1)) {
@@ -345,7 +345,7 @@ public class Bricks {
                     MoveUp(d);
                     MoveUp(c);
                     MoveRight(c);
-                 changeForm();
+                    changeForm();
                     break;
                 }
                 if (f == 3 && cB(a, -1, -1) && cB(d, 1, 1) && cB(c, 1, -1)) {
@@ -365,7 +365,7 @@ public class Bricks {
                     MoveDown(d);
                     MoveDown(c);
                     MoveLeft(c);
-                 changeForm();
+                    changeForm();
                     break;
                 }
                 break;
@@ -377,7 +377,7 @@ public class Bricks {
                     MoveUp(c);
                     MoveLeft(d);
                     MoveLeft(d);
-                changeForm();
+                    changeForm();
                     break;
                 }
                 if (f == 2 && cB(b, -1, -1) && cB(c, 1, -1) && cB(d, 2, 0)) {
@@ -387,7 +387,7 @@ public class Bricks {
                     MoveDown(c);
                     MoveRight(d);
                     MoveRight(d);
-                 changeForm();
+                    changeForm();
                     break;
                 }
                 if (f == 3 && cB(b, 1, 1) && cB(c, -1, 1) && cB(d, -2, 0)) {
@@ -407,7 +407,7 @@ public class Bricks {
                     MoveDown(c);
                     MoveRight(d);
                     MoveRight(d);
-                 changeForm();
+                    changeForm();
                     break;
                 }
                 break;
@@ -421,7 +421,7 @@ public class Bricks {
                     MoveRight(b);
                     MoveDown(d);
                     MoveLeft(d);
-               changeForm();
+                    changeForm();
                     break;
                 }
                 if (f == 2 && cB(a, -2, -2) && cB(b, -1, -1) && cB(d, 1, 1)) {
@@ -433,7 +433,7 @@ public class Bricks {
                     MoveLeft(b);
                     MoveUp(d);
                     MoveRight(d);
-                  changeForm();
+                    changeForm();
                     break;
                 }
                 if (f == 3 && cB(a, 2, 2) && cB(b, 1, 1) && cB(d, -1, -1)) {
@@ -457,12 +457,12 @@ public class Bricks {
                     MoveLeft(b);
                     MoveUp(d);
                     MoveRight(d);
-                  changeForm();
+                    changeForm();
                     break;
                 }
                 break;
         }
-        }
+    }
 
     public Boolean doesOverlap(Bricks other){
         Bricks o = other;
@@ -552,7 +552,7 @@ public class Bricks {
             //object = a;
             Group group = new Group();
             group.getChildren().addAll(a.a, a.b, a.c, a.d);
-           // moveOnKeyPress(a);
+            // moveOnKeyPress(a);
         }
 
         if (a.getY() + MOVE < YMAX && b.getY() + MOVE < YMAX && c.getY() + MOVE < YMAX

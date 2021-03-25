@@ -25,12 +25,12 @@ public class gameScreen extends Group {
         super();
 
         //creating score text
-        Text scoreLabel = new Text("score:");
-        scoreLabel.setX(5);
+        Text scoreLabel = new Text("Score:");
+        scoreLabel.setX(400);
         scoreLabel.setY(10);
 
         Text scoreValue = new Text("0");
-        scoreValue.setX(50);
+        scoreValue.setX(470);
         scoreValue.setY(10);
         //creating background
         GridPane grid = new GridPane();
