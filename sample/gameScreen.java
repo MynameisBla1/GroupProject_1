@@ -77,7 +77,7 @@ public class gameScreen extends Group {
                     currentBrick.moveDown();
                 }
                 for(Bricks brick : brickList) {
-                    if(brick.doesOverlap(currentBrick)) {
+                    if(brick.doesNextOverlap(currentBrick)) {
                         currentBrick.atBottom=true;
                     }
                 }

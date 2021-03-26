@@ -1,7 +1,9 @@
 package sample;
 
+import javafx.geometry.Bounds;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import org.w3c.dom.css.Rect;
 
 public class Bricks {
     Rectangle a;
@@ -177,8 +179,67 @@ public class Bricks {
         }
 
     }
+
+    public Boolean doesNextOverlap(Bricks other){
+
+        Rectangle tempA = new Rectangle(other.a.getX(), other.a.getY()+Main.MOVE, other.a.getWidth(), other.a.getHeight());
+        Rectangle tempB = new Rectangle(other.b.getX(), other.b.getY()+Main.MOVE, other.b.getWidth(), other.b.getHeight());
+        Rectangle tempC = new Rectangle(other.c.getX(), other.c.getY()+Main.MOVE, other.c.getWidth(), other.c.getHeight());
+        Rectangle tempD = new Rectangle(other.d.getX(), other.d.getY()+Main.MOVE, other.d.getWidth(), other.d.getHeight());
+
+        if(a.intersects(tempA.getBoundsInParent())) {
+            return true;
+        }
+        if(a.intersects(tempB.getBoundsInParent())) {
+            return true;
+        }
+        if(a.intersects(tempC.getBoundsInParent())) {
+            return true;
+        }
+        if(a.intersects(tempD.getBoundsInParent())) {
+            return true;
+        }
+        if(b.intersects(tempA.getBoundsInParent())) {
+            return true;
+        }
+        if(b.intersects(tempB.getBoundsInParent())) {
+            return true;
+        }
+        if(b.intersects(tempC.getBoundsInParent())) {
+            return true;
+        }
+        if(b.intersects(tempD.getBoundsInParent())) {
+            return true;
+        }
+        if(c.intersects(tempA.getBoundsInParent())) {
+            return true;
+        }
+        if(c.intersects(tempB.getBoundsInParent())) {
+            return true;
+        }
+        if(c.intersects(tempC.getBoundsInParent())) {
+            return true;
+        }
+        if(c.intersects(tempD.getBoundsInParent())) {
+            return true;
+        }
+        if(d.intersects(tempA.getBoundsInParent())) {
+            return true;
+        }
+        if(d.intersects(tempB.getBoundsInParent())) {
+            return true;
+        }
+        if(d.intersects(tempC.getBoundsInParent())) {
+            return true;
+        }
+        if(d.intersects(tempD.getBoundsInParent())) {
+            return true;
+        }
+        return false;
+
+    }
+
     public Boolean doesOverlap(Bricks other){
-        Bricks o = other;
         if(a.intersects(other.a.getBoundsInParent())) {
             return true;
         }
@@ -230,6 +291,8 @@ public class Bricks {
         return false;
 
     }
+
+
 
 
 }
