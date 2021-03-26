@@ -34,8 +34,8 @@ public class gameScreen extends Group {
         scoreValue.setY(10);
         //creating background
         GridPane grid = new GridPane();
-        grid.setPrefWidth(400);
-        grid.setPrefHeight(550);
+        grid.setPrefWidth(350);
+        grid.setPrefHeight(475);
         grid.setStyle("-fx-background-color: lightgrey");
         grid.setGridLinesVisible(true);
 
@@ -50,7 +50,7 @@ public class gameScreen extends Group {
             public void run() {
                 currentBrick.moveDown();
             }
-        }, 1000, 1000);
+        }, 700, 700);
 
 
 

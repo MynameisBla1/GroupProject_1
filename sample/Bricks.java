@@ -159,7 +159,7 @@ public class Bricks {
         return new Bricks(a, b, c, d, name);
     }
     public void moveRight(){
-        if(a.getX()< 375 && b.getX()<375 && c.getX()<375 && d.getX()<375) {
+        if(a.getX()< XMAX-SIZE && b.getX()<XMAX-SIZE && c.getX()<XMAX-SIZE && d.getX()<XMAX-SIZE) {
             a.setX(a.getX() + MOVE);
             b.setX(b.getX() + MOVE);
             c.setX(c.getX() + MOVE);
@@ -461,7 +461,7 @@ public class Bricks {
     }
 
     public void moveDown(){
-        if(a.getY()<525  && b.getY()<525 && c.getY()<525 && d.getY()<525){
+        if(a.getY()<YMAX-SIZE  && b.getY()<YMAX-SIZE && c.getY()<YMAX-SIZE && d.getY()<YMAX-SIZE){
             a.setY(a.getY() +MOVE);
             b.setY(b.getY() +MOVE);
             c.setY(c.getY() +MOVE);
