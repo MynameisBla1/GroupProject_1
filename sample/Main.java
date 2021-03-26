@@ -24,8 +24,8 @@ public class Main extends Application{
     // The variables
     public static final int MOVE = 25;
     public static final int SIZE = 25;
-    public static int XMAX = SIZE * 12;
-    public static int YMAX = SIZE * 24;
+    public static int XMAX = SIZE * 16;
+    public static int YMAX = SIZE * 22;
     public static int[][] MESH = new int[XMAX / SIZE][YMAX / SIZE];
     private static Pane group = new Pane();
     private static sample.Bricks object;
