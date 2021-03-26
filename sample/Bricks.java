@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.geometry.Bounds;
+import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.w3c.dom.css.Rect;
@@ -11,16 +12,23 @@ public class Bricks {
     Rectangle c;
     Rectangle d;
     Color color;
+    Rectangle letters [] = new Rectangle[4];
     private String name;
     public int form = 1;
     public boolean atBottom = false;
-    //String letters = new String[
+    private static Bricks nextObj = Bricks.makeRect();
+
 
     public Bricks(Rectangle a, Rectangle b, Rectangle c, Rectangle d) {
         this.a = a;
         this.b = b;
         this.c = c;
         this.d = d;
+        letters[0] = this.a;
+        letters[1] = this.b;
+        letters[2] = this.c;
+        letters[3] = this.d;
+
     }
 
     public Bricks(Rectangle a, Rectangle b, Rectangle c, Rectangle d, String name) {
@@ -29,6 +37,10 @@ public class Bricks {
         this.c = c;
         this.d = d;
         this.name = name;
+        letters[0] = this.a;
+        letters[1] = this.b;
+        letters[2] = this.c;
+        letters[3] = this.d;
 
         switch (name) {
             case "j":
@@ -165,8 +177,289 @@ public class Bricks {
 
     }
     public void rotate(){
-        //need code to rotate
+        int f = form;
+        switch(getName()){
+            case "j":
+                if(f ==1 && cB(a,1,-1) && cB(c, -1, -1) && cB(d, -2, -2)) {
+                    MoveRight(a);
+                    MoveDown(a);
+                    MoveDown(c);
+                    MoveLeft(c);
+                    MoveDown(d);
+                    MoveDown(d);
+                    MoveLeft(d);
+                    MoveLeft(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 2 && cB(a, -1, -1) && cB(c, -1, 1) && cB(d, -2, 2)) {
+                    MoveDown(a);
+                    MoveLeft(a);
+                    MoveLeft(c);
+                    MoveUp(c);
+                    MoveLeft(d);
+                    MoveLeft(d);
+                    MoveUp(d);
+                    MoveUp(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 3 && cB(a, -1, 1) && cB(c, 1, 1) && cB(d, 2, 2)) {
+                    MoveLeft(a);
+                    MoveUp(a);
+                    MoveUp(c);
+                    MoveRight(c);
+                    MoveUp(d);
+                    MoveUp(d);
+                    MoveRight(d);
+                    MoveRight(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 4 && cB(a, 1, 1) && cB(c, 1, -1) && cB(d, 2, -2)) {
+                    MoveUp(a);
+                    MoveRight(a);
+                    MoveRight(c);
+                    MoveDown(c);
+                    MoveRight(d);
+                    MoveRight(d);
+                    MoveDown(d);
+                    MoveDown(d);
+                    changeForm();
+                    break;
+                }
+                break;
+            case "l":
+                if (f == 1 && cB(a, 1, -1) && cB(c, 1, 1) && cB(b, 2, 2)) {
+                    MoveRight(a);
+                    MoveDown(a);
+                    MoveUp(c);
+                    MoveRight(c);
+                    MoveUp(b);
+                    MoveUp(b);
+                    MoveRight(b);
+                    MoveRight(b);
+                    changeForm();
+                    break;
+                }
+                if (f == 2 && cB(a, -1, -1) && cB(b, 2, -2) && cB(c, 1, -1)) {
+                    MoveDown(a);
+                    MoveLeft(a);
+                    MoveRight(b);
+                    MoveRight(b);
+                    MoveDown(b);
+                    MoveDown(b);
+                    MoveRight(c);
+                    MoveDown(c);
+                    changeForm();
+                    break;
+                }
+                if (f == 3 && cB(a, -1, 1) && cB(c, -1, -1) && cB(b, -2, -2)) {
+                    MoveLeft(a);
+                    MoveUp(a);
+                    MoveDown(c);
+                    MoveLeft(c);
+                    MoveDown(b);
+                    MoveDown(b);
+                    MoveLeft(b);
+                    MoveLeft(b);
+                    changeForm();
+                    break;
+                }
+                if (f == 4 && cB(a, 1, 1) && cB(b, -2, 2) && cB(c, -1, 1)) {
+                    MoveUp(a);
+                    MoveRight(a);
+                    MoveLeft(b);
+                    MoveLeft(b);
+                    MoveUp(b);
+                    MoveUp(b);
+                    MoveLeft(c);
+                    MoveUp(c);
+                    changeForm();
+                    break;
+                }
+                break;
+            case "o":
+                break;
+            case "s":
+                if (f == 1 && cB(a, -1, -1) && cB(c, -1, 1) && cB(d, 0, 2)) {
+                    MoveDown(a);
+                    MoveLeft(a);
+                    MoveLeft(c);
+                    MoveUp(c);
+                    MoveUp(d);
+                    MoveUp(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 2 && cB(a, 1, 1) && cB(c, 1, -1) && cB(d, 0, -2)) {
+                    MoveUp(a);
+                    MoveRight(a);
+                    MoveRight(c);
+                    MoveDown(c);
+                    MoveDown(d);
+                    MoveDown(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 3 && cB(a, -1, -1) && cB(c, -1, 1) && cB(d, 0, 2)) {
+                    MoveDown(a);
+                    MoveLeft(a);
+                    MoveLeft(c);
+                    MoveUp(c);
+                    MoveUp(d);
+                    MoveUp(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 4 && cB(a, 1, 1) && cB(c, 1, -1) && cB(d, 0, -2)) {
+                    MoveUp(a);
+                    MoveRight(a);
+                    MoveRight(c);
+                    MoveDown(c);
+                    MoveDown(d);
+                    MoveDown(d);
+                    changeForm();
+                    break;
+                }
+                break;
+            case "t":
+                if (f == 1 && cB(a, 1, 1) && cB(d, -1, -1) && cB(c, -1, 1)) {
+                    MoveUp(a);
+                    MoveRight(a);
+                    MoveDown(d);
+                    MoveLeft(d);
+                    MoveLeft(c);
+                    MoveUp(c);
+                    changeForm();
+                    break;
+                }
+                if (f == 2 && cB(a, 1, -1) && cB(d, -1, 1) && cB(c, 1, 1)) {
+                    MoveRight(a);
+                    MoveDown(a);
+                    MoveLeft(d);
+                    MoveUp(d);
+                    MoveUp(c);
+                    MoveRight(c);
+                    changeForm();
+                    break;
+                }
+                if (f == 3 && cB(a, -1, -1) && cB(d, 1, 1) && cB(c, 1, -1)) {
+                    MoveDown(a);
+                    MoveLeft(a);
+                    MoveUp(d);
+                    MoveRight(d);
+                    MoveRight(c);
+                    MoveDown(c);
+                    changeForm();
+                    break;
+                }
+                if (f == 4 && cB(a, -1, 1) && cB(d, 1, -1) && cB(c, -1, -1)) {
+                    MoveLeft(a);
+                    MoveUp(a);
+                    MoveRight(d);
+                    MoveDown(d);
+                    MoveDown(c);
+                    MoveLeft(c);
+                    changeForm();
+                    break;
+                }
+                break;
+            case "z":
+                if (f == 1 && cB(b, 1, 1) && cB(c, -1, 1) && cB(d, -2, 0)) {
+                    MoveUp(b);
+                    MoveRight(b);
+                    MoveLeft(c);
+                    MoveUp(c);
+                    MoveLeft(d);
+                    MoveLeft(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 2 && cB(b, -1, -1) && cB(c, 1, -1) && cB(d, 2, 0)) {
+                    MoveDown(b);
+                    MoveLeft(b);
+                    MoveRight(c);
+                    MoveDown(c);
+                    MoveRight(d);
+                    MoveRight(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 3 && cB(b, 1, 1) && cB(c, -1, 1) && cB(d, -2, 0)) {
+                    MoveUp(b);
+                    MoveRight(b);
+                    MoveLeft(c);
+                    MoveUp(c);
+                    MoveLeft(d);
+                    MoveLeft(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 4 && cB(b, -1, -1) && cB(c, 1, -1) && cB(d, 2, 0)) {
+                    MoveDown(b);
+                    MoveLeft(b);
+                    MoveRight(c);
+                    MoveDown(c);
+                    MoveRight(d);
+                    MoveRight(d);
+                    changeForm();
+                    break;
+                }
+                break;
+            case "i":
+                if (f == 1 && cB(a, 2, 2) && cB(b, 1, 1) && cB(d, -1, -1)) {
+                    MoveUp(a);
+                    MoveUp(a);
+                    MoveRight(a);
+                    MoveRight(a);
+                    MoveUp(b);
+                    MoveRight(b);
+                    MoveDown(d);
+                    MoveLeft(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 2 && cB(a, -2, -2) && cB(b, -1, -1) && cB(d, 1, 1)) {
+                    MoveDown(a);
+                    MoveDown(a);
+                    MoveLeft(a);
+                    MoveLeft(a);
+                    MoveDown(b);
+                    MoveLeft(b);
+                    MoveUp(d);
+                    MoveRight(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 3 && cB(a, 2, 2) && cB(b, 1, 1) && cB(d, -1, -1)) {
+                    MoveUp(a);
+                    MoveUp(a);
+                    MoveRight(a);
+                    MoveRight(a);
+                    MoveUp(b);
+                    MoveRight(b);
+                    MoveDown(d);
+                    MoveLeft(d);
+                    changeForm();
+                    break;
+                }
+                if (f == 4 && cB(a, -2, -2) && cB(b, -1, -1) && cB(d, 1, 1)) {
+                    MoveDown(a);
+                    MoveDown(a);
+                    MoveLeft(a);
+                    MoveLeft(a);
+                    MoveDown(b);
+                    MoveLeft(b);
+                    MoveUp(d);
+                    MoveRight(d);
+                    changeForm();
+                    break;
+                }
+                break;
+        }
     }
+
     public void moveDown(){
         if(a.getY()<525  && b.getY()<525 && c.getY()<525 && d.getY()<525){
             a.setY(a.getY() +MOVE);
@@ -179,118 +472,107 @@ public class Bricks {
         }
 
     }
-
-    public Boolean doesNextOverlap(Bricks other){
-
-        Rectangle tempA = new Rectangle(other.a.getX(), other.a.getY()+Main.MOVE, other.a.getWidth(), other.a.getHeight());
-        Rectangle tempB = new Rectangle(other.b.getX(), other.b.getY()+Main.MOVE, other.b.getWidth(), other.b.getHeight());
-        Rectangle tempC = new Rectangle(other.c.getX(), other.c.getY()+Main.MOVE, other.c.getWidth(), other.c.getHeight());
-        Rectangle tempD = new Rectangle(other.d.getX(), other.d.getY()+Main.MOVE, other.d.getWidth(), other.d.getHeight());
-
-        if(a.intersects(tempA.getBoundsInParent())) {
-            return true;
-        }
-        if(a.intersects(tempB.getBoundsInParent())) {
-            return true;
-        }
-        if(a.intersects(tempC.getBoundsInParent())) {
-            return true;
-        }
-        if(a.intersects(tempD.getBoundsInParent())) {
-            return true;
-        }
-        if(b.intersects(tempA.getBoundsInParent())) {
-            return true;
-        }
-        if(b.intersects(tempB.getBoundsInParent())) {
-            return true;
-        }
-        if(b.intersects(tempC.getBoundsInParent())) {
-            return true;
-        }
-        if(b.intersects(tempD.getBoundsInParent())) {
-            return true;
-        }
-        if(c.intersects(tempA.getBoundsInParent())) {
-            return true;
-        }
-        if(c.intersects(tempB.getBoundsInParent())) {
-            return true;
-        }
-        if(c.intersects(tempC.getBoundsInParent())) {
-            return true;
-        }
-        if(c.intersects(tempD.getBoundsInParent())) {
-            return true;
-        }
-        if(d.intersects(tempA.getBoundsInParent())) {
-            return true;
-        }
-        if(d.intersects(tempB.getBoundsInParent())) {
-            return true;
-        }
-        if(d.intersects(tempC.getBoundsInParent())) {
-            return true;
-        }
-        if(d.intersects(tempD.getBoundsInParent())) {
-            return true;
-        }
-        return false;
+    private void MoveDown(Rectangle rect) {
+        if (rect.getY() + MOVE < YMAX)
+            rect.setY(rect.getY() + MOVE);
 
     }
 
-    public Boolean doesOverlap(Bricks other){
-        if(a.intersects(other.a.getBoundsInParent())) {
-            return true;
+    private void MoveRight(Rectangle rect) {
+        if (rect.getX() + MOVE <= XMAX - SIZE)
+            rect.setX(rect.getX() + MOVE);
+    }
+
+    private void MoveLeft(Rectangle rect) {
+        if (rect.getX() - MOVE >= 0)
+            rect.setX(rect.getX() - MOVE);
+    }
+
+    private void MoveUp(Rectangle rect) {
+        if (rect.getY() - MOVE > 0)
+            rect.setY(rect.getY() - MOVE);
+    }
+
+    private void MoveDown() {
+        if (a.getY() == YMAX - SIZE || b.getY() == YMAX - SIZE || c.getY() == YMAX - SIZE
+                || d.getY() == YMAX - SIZE || moveA() || moveB() || moveC() || moveD()) {
+            MESH[(int) a.getX() / SIZE][(int) a.getY() / SIZE] = 1;
+            MESH[(int) b.getX() / SIZE][(int) b.getY() / SIZE] = 1;
+            MESH[(int) c.getX() / SIZE][(int) c.getY() / SIZE] = 1;
+            MESH[(int) d.getX() / SIZE][(int) d.getY() / SIZE] = 1;
+            //RemoveRows(group);
+
+            Bricks a = nextObj;
+            nextObj = Bricks.makeRect();
+            //object = a;
+            Group group = new Group();
+            group.getChildren().addAll(a.a, a.b, a.c, a.d);
+            // moveOnKeyPress(a);
         }
-        if(a.intersects(other.b.getBoundsInParent())) {
-            return true;
+
+        if (a.getY() + MOVE < YMAX && b.getY() + MOVE < YMAX && c.getY() + MOVE < YMAX
+                && d.getY() + MOVE < YMAX) {
+            int movea = MESH[(int) a.getX() / SIZE][((int) a.getY() / SIZE) + 1];
+            int moveb = MESH[(int) b.getX() / SIZE][((int) b.getY() / SIZE) + 1];
+            int movec = MESH[(int) c.getX() / SIZE][((int) c.getY() / SIZE) + 1];
+            int moved = MESH[(int) d.getX() / SIZE][((int) d.getY() / SIZE) + 1];
+            if (movea == 0 && movea == moveb && moveb == movec && movec == moved) {
+                a.setY(a.getY() + MOVE);
+                b.setY(b.getY() + MOVE);
+                c.setY(c.getY() + MOVE);
+                d.setY(d.getY() + MOVE);
+            }
         }
-        if(a.intersects(other.c.getBoundsInParent())) {
-            return true;
-        }
-        if(a.intersects(other.d.getBoundsInParent())) {
-            return true;
-        }
-        if(b.intersects(other.a.getBoundsInParent())) {
-            return true;
-        }
-        if(b.intersects(other.b.getBoundsInParent())) {
-            return true;
-        }
-        if(b.intersects(other.c.getBoundsInParent())) {
-            return true;
-        }
-        if(b.intersects(other.d.getBoundsInParent())) {
-            return true;
-        }
-        if(c.intersects(other.a.getBoundsInParent())) {
-            return true;
-        }
-        if(c.intersects(other.b.getBoundsInParent())) {
-            return true;
-        }
-        if(c.intersects(other.c.getBoundsInParent())) {
-            return true;
-        }
-        if(c.intersects(other.d.getBoundsInParent())) {
-            return true;
-        }
-        if(d.intersects(other.a.getBoundsInParent())) {
-            return true;
-        }
-        if(d.intersects(other.b.getBoundsInParent())) {
-            return true;
-        }
-        if(d.intersects(other.c.getBoundsInParent())) {
-            return true;
-        }
-        if(d.intersects(other.d.getBoundsInParent())) {
-            return true;
+    }
+
+    private boolean moveA() {
+        return (MESH[(int) a.getX() / SIZE][((int) a.getY() / SIZE) + 1] == 1);
+    }
+
+    private boolean moveB() {
+        return (MESH[(int) b.getX() / SIZE][((int) b.getY() / SIZE) + 1] == 1);
+    }
+
+    private boolean moveC() {
+        return (MESH[(int) c.getX() / SIZE][((int) c.getY() / SIZE) + 1] == 1);
+    }
+
+    private boolean moveD() {
+        return (MESH[(int) d.getX() / SIZE][((int) d.getY() / SIZE) + 1] == 1);
+    }
+    private boolean cB(Rectangle rect, int x, int y) {
+        boolean xb = false;
+        boolean yb = false;
+        if (x >= 0)
+            xb = rect.getX() + x * MOVE <= XMAX - SIZE;
+        if (x < 0)
+            xb = rect.getX() + x * MOVE >= 0;
+        if (y >= 0)
+            yb = rect.getY() - y * MOVE > 0;
+        if (y < 0)
+            yb = rect.getY() + y * MOVE < YMAX;
+        return xb && yb && MESH[((int) rect.getX() / SIZE) + x][((int) rect.getY() / SIZE) - y] == 0;
+    }
+    //public boolean rightOverlap()
+
+
+    public Boolean doesOverlap(Bricks other, int xAdd, int yAdd) {
+        Rectangle[] temps = new Rectangle[4];
+        temps[0] = new Rectangle(other.a.getX() + xAdd, other.a.getY() + yAdd, other.a.getWidth(), other.a.getHeight());
+        temps[1] = new Rectangle(other.b.getX() + xAdd, other.b.getY() + yAdd, other.b.getWidth(), other.b.getHeight());
+        temps[2] = new Rectangle(other.c.getX() + xAdd, other.c.getY() + yAdd, other.c.getWidth(), other.c.getHeight());
+        temps[3] = new Rectangle(other.d.getX() + xAdd, other.d.getY() + yAdd, other.d.getWidth(), other.d.getHeight());
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (letters[j].intersects(temps[i].getBoundsInParent())) {
+                    return true;
+                }
+            }
         }
         return false;
-
     }
+
 
 
 

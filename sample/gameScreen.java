@@ -61,23 +61,43 @@ public class gameScreen extends Group {
             public void handle(long currentNanoTime){
 
                 if(Controller.input.equals("LEFT")){
-                    System.out.println(Controller.input);
-                    currentBrick.moveLeft();
+
+                    Boolean doesItOverlap = false;
+                    for(Bricks brick : brickList) {
+                        if(brick.doesOverlap(currentBrick, -1*(Main.MOVE),0)) {
+                            doesItOverlap= true;
+                            break;
+                        }
+                    }
+                    if(doesItOverlap ==false){
+                        currentBrick.moveLeft();
+                    }
+
                 }
                 if(Controller.input.equals("RIGHT")){
-                    System.out.println(Controller.input);
-                    currentBrick.moveRight();
+
+                    Boolean doesItOverlap = false;
+                    for(Bricks brick : brickList) {
+                        if(brick.doesOverlap(currentBrick, Main.MOVE,0)) {
+                            doesItOverlap= true;
+                            break;
+                        }
+                    }
+                    if(doesItOverlap == false){
+                        currentBrick.moveRight();
+                    }
+
                 }
                 if(Controller.input.equals("UP")){
-                    System.out.println(Controller.input);
+
                     currentBrick.rotate();
                 }
                 if(Controller.input.equals("DOWN")){
-                    System.out.println(Controller.input);
+
                     currentBrick.moveDown();
                 }
                 for(Bricks brick : brickList) {
-                    if(brick.doesNextOverlap(currentBrick)) {
+                    if(brick.doesOverlap(currentBrick, 0,Main.MOVE)) {
                         currentBrick.atBottom=true;
                     }
                 }
