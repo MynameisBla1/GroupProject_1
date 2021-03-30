@@ -111,6 +111,7 @@ public class GameBoard extends Parent {
         }
 
     }
+    // Restart funtion
     public void clearMesh(){
         for(int i = 0; i<BOARDCOLUMNS; i++){
             for(int j = 0; j<BOARDROWS; j++){

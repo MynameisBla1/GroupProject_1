@@ -70,9 +70,11 @@ public class Game extends Parent {
                 else if(input == "UP"){
                     board.rotateIfCan();
                 }
+                // Restart funtion
                 else if (input =="N"){
                     board.clearMesh();
                 }
+              // pause funtion
                 else if (input == "P"){timer.schedule(new TimerTask() {
                     @Override
                     public void run() {

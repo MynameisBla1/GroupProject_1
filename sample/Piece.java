@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Piece {
+    //restart funtion
     public static Color EMPTYCOLOR = Color.LIGHTCYAN;
 
     public Rectangle[] squares = new Rectangle [4];
@@ -46,7 +47,7 @@ public class Piece {
     public void rotate(){
 
     }
-
+// restart funtion
     public void clear(){
         for(int i = 0; i<4;i++) {
             this.squares[i].setFill(EMPTYCOLOR);
