@@ -70,6 +70,23 @@ public class Game extends Parent {
                 else if(input == "UP"){
                     board.rotateIfCan();
                 }
+                else if (input =="N"){
+                    board.clearMesh();
+                }
+                else if (input == "P"){timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                    }
+
+                }, -10000, -10000);}
+
+                else if (input == "R"){timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+
+                    }
+                },100,100);}
+
                 //else if(input == "SPACE"){
                 //  do{board.moveDownIfCan();}while()
 

@@ -115,6 +115,8 @@ public class GameBoard extends Parent {
         for(int i = 0; i<BOARDCOLUMNS; i++){
             for(int j = 0; j<BOARDROWS; j++){
                 mesh[i][j].setFill(EMPTYCOLOR);
+                score = 0;
+                currentPiece.clear();
             }
         }
     }
