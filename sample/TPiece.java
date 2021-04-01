@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class TPiece extends Piece{
+    //initialize piece and state
     int position = 0;
     public TPiece(int x, int y){
         this.squares[0] = new Rectangle(x,y+GameBoard.BLOCKSIZE,GameBoard.RENDERSIZE,GameBoard.RENDERSIZE);
@@ -17,6 +18,7 @@ public class TPiece extends Piece{
     @Override
     public void rotate(){
         super.rotate();
+        //checks if can rotate or too close to edge
         if(position == 3){
             if((this.squares[0].getX()) >= (GameBoard.BOARDWIDTH-GameBoard.BLOCKSIZE)){
                 return;
@@ -31,6 +33,7 @@ public class TPiece extends Piece{
         if(position>3) {
             position = 0;
         }
+        //changes position based on current
         if(position == 0){
 
             this.squares[0].setX(this.squares[0].getX()-GameBoard.BLOCKSIZE);

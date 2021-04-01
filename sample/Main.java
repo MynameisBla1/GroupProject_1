@@ -7,10 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    //makes database
     public static void makeDB(){
         Controller.dataBase();
     }
 
+    //sets scene to start on fxml
     @Override
     public void start(Stage primaryStage) throws Exception{
 
@@ -23,7 +25,7 @@ public class Main extends Application {
 
     }
 
-
+    //make database and launch game
     public static void main(String[] args) {
         makeDB();
         launch(args);

@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class LinePiece extends Piece{
+    //initialize piece and state
     boolean vertical = true;
 
     public LinePiece(int x, int y){
@@ -18,13 +19,14 @@ public class LinePiece extends Piece{
 
     @Override
     public void rotate(){
+        super.rotate();
+        //checks if possible to rotate or too close to edge
         if(vertical){
             if(this.squares[0].getX() <= GameBoard.BLOCKSIZE|| this.squares[0].getX() >=(GameBoard.BOARDWIDTH-(2*GameBoard.BLOCKSIZE))){
                 return;
             }
         }
-        super.rotate();
-
+        //switches state
         if(vertical){
             this.squares[0].setX(this.squares[0].getX()-(2*GameBoard.BLOCKSIZE));
             this.squares[0].setY(this.squares[0].getY()+(2*GameBoard.BLOCKSIZE));

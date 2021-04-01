@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class SPiece extends Piece{
+    //initialize piece and state
     boolean horizontal = true;
 
     public SPiece(int x, int y){
@@ -19,6 +20,7 @@ public class SPiece extends Piece{
     @Override
     public void rotate() {
         super.rotate();
+        //changes state based on current state
         horizontal = !horizontal;
         if(horizontal){
             this.squares[0].setX(this.squares[0].getX()-GameBoard.BLOCKSIZE);

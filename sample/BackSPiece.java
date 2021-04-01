@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class BackSPiece extends Piece{
+    //initialize piece and state
     boolean horizontal = true;
 
     public BackSPiece(int x, int y){
@@ -20,6 +21,7 @@ public class BackSPiece extends Piece{
     public void rotate(){
         super.rotate();
         horizontal = !horizontal;
+        //changes x and y coordinates based on which position rotating to
         if(horizontal){
             this.squares[0].setX(this.squares[0].getX()-GameBoard.BLOCKSIZE);
 

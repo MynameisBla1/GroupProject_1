@@ -6,8 +6,10 @@ import javafx.scene.shape.Rectangle;
 
 public class Piece {
 
+    //create array of 4 squares that will be the piece
     public Rectangle[] squares = new Rectangle [4];
 
+    //creates a random piece based on random number generator
     public static Piece createRandomPiece(int x, int y){
         int result = (int) (Math.random() * 100);
         if(result<15){
@@ -32,7 +34,7 @@ public class Piece {
             return new LinePiece(x,y);
         }
     }
-
+    //checks if the piece is at the bottom
     public boolean isAtBottom(){
         for(int i = 0; i<4; i++){
             if(this.squares[i].getY()==(GameBoard.BOARDHEIGHT-GameBoard.BLOCKSIZE)){
@@ -42,10 +44,11 @@ public class Piece {
 
         return false;
     }
+    //rotate function
     public void rotate(){
 
     }
-
+    //moves piece left
     public void moveLeft(){
         for(int i = 0; i<4;i++) {
             if (this.squares[i].getX() == 0) {
@@ -56,6 +59,7 @@ public class Piece {
             this.squares[i].setX(this.squares[i].getX()-GameBoard.BLOCKSIZE);
         }
     }
+    //moves piece right
     public void moveRight(){
         for(int i = 0; i<4;i++) {
             if (this.squares[i].getX() == (GameBoard.BOARDWIDTH-GameBoard.BLOCKSIZE)) {
@@ -66,6 +70,7 @@ public class Piece {
             this.squares[i].setX(this.squares[i].getX()+GameBoard.BLOCKSIZE);
         }
     }
+    //moves down if not at bottom
     public void moveDown(){
         if (isAtBottom() == true){
             return;
@@ -74,9 +79,11 @@ public class Piece {
             this.squares[i].setY(this.squares[i].getY()+GameBoard.BLOCKSIZE);
         }
     }
+    //getter
     public Rectangle[] getSquares(){
         return this.squares;
     }
+    //checks for collision based on which way trying to move
     public boolean collideIf(int xChange, int yChange, Rectangle [][] mesh){
         for(Rectangle r : this.squares){
             int x = (int)(r.getX()+xChange)/GameBoard.BLOCKSIZE;

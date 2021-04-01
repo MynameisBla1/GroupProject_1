@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
 
 public class GameBoard extends Parent {
 
-
+    //setting static variables
     public static int BLOCKSIZE = 25;
     public static int BOARDWIDTH = 350;
     public static int BOARDHEIGHT = 475;
@@ -21,14 +21,16 @@ public class GameBoard extends Parent {
     public static Color EMPTYCOLOR = Color.LIGHTCYAN;
     public int score = 0;
 
-
+    //set up grid
     private static Rectangle[][] mesh = new Rectangle[BOARDCOLUMNS][BOARDROWS];
+
+    //constructor
     public GameBoard(){
         newBoard();
     }
-
+    //creates a new game board
     public void newBoard(){
-
+        //initializes as empty
         for(int i = 0; i<BOARDCOLUMNS; i++){
             for(int j = 0; j<BOARDROWS; j++){
                 mesh[i][j] = new Rectangle(i*BLOCKSIZE,j*BLOCKSIZE,BLOCKSIZE,BLOCKSIZE);
@@ -36,29 +38,32 @@ public class GameBoard extends Parent {
                 getChildren().add(mesh[i][j]);
             }
         }
+        //initializes score at 0
         score = 0;
-
+        //displays the next piece
         nextPiece();
 
     }
-
+    //shows the next piece in the middle of the screen
     public void nextPiece(){
         currentPiece = Piece.createRandomPiece(((BOARDCOLUMNS/2)-1)*BLOCKSIZE,0);
         getChildren().addAll(currentPiece.squares);
     }
-
+    //moves left if will not collide
     public void moveLeftIfCan(){
         if(currentPiece.collideIf((-1*BLOCKSIZE),0,mesh)==false){
             currentPiece.moveLeft();
         }
 
     }
+    //moves right if will not collide
     public void moveRightIfCan() {
         if (currentPiece.collideIf(BLOCKSIZE, 0, mesh) == false){
             currentPiece.moveRight();
         }
 
     }
+    //moves down if will not collide
     public void moveDownIfCan(){
         if(currentPiece.collideIf(0,BLOCKSIZE,mesh)==false){
             currentPiece.moveDown();
@@ -66,6 +71,7 @@ public class GameBoard extends Parent {
 
 
     }
+    //rotates if it can
     public void rotateIfCan() {
         try{
             currentPiece.rotate();
@@ -74,7 +80,7 @@ public class GameBoard extends Parent {
         }
 
     }
-
+    //if the piece is at bottom or is going to collide with bottom, make the next piece
     public void goToNextIfNeed(){
         if(currentPiece.isAtBottom() == true|| currentPiece.collideIf(0,BLOCKSIZE,mesh) == true){
             Rectangle [] squares = currentPiece.getSquares();
@@ -88,7 +94,9 @@ public class GameBoard extends Parent {
         }
 
     }
+    //if the row is full, delete it
     public void deleteRowIfNeed(){
+        //checks each row to see if every column is full
         for(int y = BOARDROWS-1; y>0; y--){
             int numFull = 0;
             for(int x = 0; x < BOARDCOLUMNS; x++){
@@ -98,6 +106,7 @@ public class GameBoard extends Parent {
                     break;
                 }
             }
+            //if all columns full, add score and move down everything
             if(numFull == BOARDCOLUMNS){
                 score = score + 100;
                 System.out.println(score);
@@ -121,6 +130,7 @@ public class GameBoard extends Parent {
         }
 
     }
+    //resets the board
     public void clearMesh(){
         for(int i = 0; i<BOARDCOLUMNS; i++){
             for(int j = 0; j<BOARDROWS; j++){
@@ -128,6 +138,7 @@ public class GameBoard extends Parent {
             }
         }
     }
+    //checks if game is over if a piece is at the top row
     public boolean isEndGame(){
         for(int i = 0; i< BOARDCOLUMNS; i++){
             if(mesh[i][0].getFill()!= EMPTYCOLOR){

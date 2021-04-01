@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class BackLPiece extends Piece{
+    //initialize position at 0 and creates piece
     int position = 0;
     public BackLPiece(int x, int y){
         this.squares[0] = new Rectangle(x+GameBoard.BLOCKSIZE,y,GameBoard.RENDERSIZE,GameBoard.RENDERSIZE);
@@ -14,9 +15,11 @@ public class BackLPiece extends Piece{
             this.squares[i].setFill(Color.RED);
         }
     }
+    //rotates piece
     @Override
     public void rotate(){
         super.rotate();
+        //checks if will rotate off screen before rotates
         if(position == 2){
             if((this.squares[0].getX()) <= 0){
                 return;
@@ -27,11 +30,13 @@ public class BackLPiece extends Piece{
                 return;
             }
         }
+        //changes position by 1
         position = position +1;
 
         if(position>3) {
             position = 0;
         }
+        //changes x and y coordinates based on which position rotating to
         if(position == 0){
 
             this.squares[0].setX(this.squares[0].getX()-GameBoard.BLOCKSIZE);

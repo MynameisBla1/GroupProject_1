@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class LPiece extends Piece{
+    //initialize position and shape
     int position = 0;
     public LPiece(int x, int y){
         this.squares[0] = new Rectangle(x+GameBoard.BLOCKSIZE,y,GameBoard.RENDERSIZE,GameBoard.RENDERSIZE);
@@ -17,6 +18,7 @@ public class LPiece extends Piece{
     @Override
     public void rotate(){
         super.rotate();
+        //checks if possible to rotate or too close to edge
         if(position == 2){
             if(this.squares[0].getX() >= (GameBoard.BOARDWIDTH-GameBoard.BLOCKSIZE)){
                 return;
@@ -32,6 +34,7 @@ public class LPiece extends Piece{
         if(position>3) {
             position = 0;
         }
+        //changes state based on beginning
         if(position == 0){
 
             this.squares[0].setX(this.squares[0].getX() + GameBoard.BLOCKSIZE);
