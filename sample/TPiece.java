@@ -17,6 +17,16 @@ public class TPiece extends Piece{
     @Override
     public void rotate(){
         super.rotate();
+        if(position == 3){
+            if((this.squares[0].getX()) >= (GameBoard.BOARDWIDTH-GameBoard.BLOCKSIZE)){
+                return;
+            }
+        }
+        else if(position == 1){
+            if((this.squares[0].getX()) <=0 ){
+                return;
+            }
+        }
         position = position +1;
         if(position>3) {
             position = 0;

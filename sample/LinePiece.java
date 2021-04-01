@@ -17,7 +17,12 @@ public class LinePiece extends Piece{
     }
 
     @Override
-    public void rotate() {
+    public void rotate(){
+        if(vertical){
+            if(this.squares[0].getX() <= GameBoard.BLOCKSIZE|| this.squares[0].getX() >=(GameBoard.BOARDWIDTH-(2*GameBoard.BLOCKSIZE))){
+                return;
+            }
+        }
         super.rotate();
 
         if(vertical){

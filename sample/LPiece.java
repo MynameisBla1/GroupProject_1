@@ -17,18 +17,31 @@ public class LPiece extends Piece{
     @Override
     public void rotate(){
         super.rotate();
+        if(position == 2){
+            if(this.squares[0].getX() >= (GameBoard.BOARDWIDTH-GameBoard.BLOCKSIZE)){
+                return;
+            }
+        }
+        else if(position == 0){
+            if(this.squares[0].getX() <= 0){
+                return;
+            }
+        }
         position = position +1;
+
         if(position>3) {
             position = 0;
         }
         if(position == 0){
-            this.squares[0].setX(this.squares[0].getX()+GameBoard.BLOCKSIZE);
-            this.squares[0].setY(this.squares[0].getY()-GameBoard.BLOCKSIZE);
 
-            this.squares[2].setX(this.squares[2].getX()-GameBoard.BLOCKSIZE);
-            this.squares[2].setY(this.squares[2].getY()+GameBoard.BLOCKSIZE);
+            this.squares[0].setX(this.squares[0].getX() + GameBoard.BLOCKSIZE);
+            this.squares[0].setY(this.squares[0].getY() - GameBoard.BLOCKSIZE);
 
-            this.squares[3].setY(this.squares[3].getY()+(2*GameBoard.BLOCKSIZE));
+            this.squares[2].setX(this.squares[2].getX() - GameBoard.BLOCKSIZE);
+            this.squares[2].setY(this.squares[2].getY() + GameBoard.BLOCKSIZE);
+
+            this.squares[3].setY(this.squares[3].getY() + (2 * GameBoard.BLOCKSIZE));
+
 
 
         } else if(position == 1){
@@ -51,13 +64,15 @@ public class LPiece extends Piece{
             this.squares[3].setY(this.squares[3].getY()-(2*GameBoard.BLOCKSIZE));
 
         } else {
-            this.squares[0].setX(this.squares[0].getX()-GameBoard.BLOCKSIZE);
-            this.squares[0].setY(this.squares[0].getY()-GameBoard.BLOCKSIZE);
 
-            this.squares[2].setX(this.squares[2].getX()+GameBoard.BLOCKSIZE);
-            this.squares[2].setY(this.squares[2].getY()+GameBoard.BLOCKSIZE);
+            this.squares[0].setX(this.squares[0].getX() - GameBoard.BLOCKSIZE);
+            this.squares[0].setY(this.squares[0].getY() - GameBoard.BLOCKSIZE);
 
-            this.squares[3].setX(this.squares[3].getX()+(2*GameBoard.BLOCKSIZE));
+            this.squares[2].setX(this.squares[2].getX() + GameBoard.BLOCKSIZE);
+            this.squares[2].setY(this.squares[2].getY() + GameBoard.BLOCKSIZE);
+
+            this.squares[3].setX(this.squares[3].getX() + (2 * GameBoard.BLOCKSIZE));
+
 
         }
 

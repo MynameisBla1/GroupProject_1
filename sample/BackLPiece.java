@@ -17,7 +17,18 @@ public class BackLPiece extends Piece{
     @Override
     public void rotate(){
         super.rotate();
+        if(position == 2){
+            if((this.squares[0].getX()) <= 0){
+                return;
+            }
+        }
+        else if(position == 0){
+            if((this.squares[0].getX()) >= (GameBoard.BOARDWIDTH-GameBoard.BLOCKSIZE)){
+                return;
+            }
+        }
         position = position +1;
+
         if(position>3) {
             position = 0;
         }

@@ -17,7 +17,7 @@ public class BackSPiece extends Piece{
     }
 
     @Override
-    public void rotate() {
+    public void rotate(){
         super.rotate();
         horizontal = !horizontal;
         if(horizontal){
@@ -44,5 +44,4 @@ public class BackSPiece extends Piece{
 
     }
 }
-
 

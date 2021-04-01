@@ -21,11 +21,13 @@ public class GameBoard extends Parent {
     public static Color EMPTYCOLOR = Color.LIGHTCYAN;
     public int score = 0;
 
+
     private static Rectangle[][] mesh = new Rectangle[BOARDCOLUMNS][BOARDROWS];
-
-
-
     public GameBoard(){
+        newBoard();
+    }
+
+    public void newBoard(){
 
         for(int i = 0; i<BOARDCOLUMNS; i++){
             for(int j = 0; j<BOARDROWS; j++){
@@ -34,6 +36,8 @@ public class GameBoard extends Parent {
                 getChildren().add(mesh[i][j]);
             }
         }
+        score = 0;
+
         nextPiece();
 
     }
@@ -60,9 +64,15 @@ public class GameBoard extends Parent {
             currentPiece.moveDown();
         }
 
+
     }
-    public void rotateIfCan(){
-        currentPiece.rotate();
+    public void rotateIfCan() {
+        try{
+            currentPiece.rotate();
+        } catch (Exception e){
+
+        }
+
     }
 
     public void goToNextIfNeed(){
@@ -118,5 +128,15 @@ public class GameBoard extends Parent {
             }
         }
     }
+    public boolean isEndGame(){
+        for(int i = 0; i< BOARDCOLUMNS; i++){
+            if(mesh[i][0].getFill()!= EMPTYCOLOR){
+                System.out.println("at top");
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

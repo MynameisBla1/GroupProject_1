@@ -44,7 +44,8 @@
             </Text>
             <Text styleClass="helpInfo" wrappingWidth="150">
                 <![CDATA[
-                P - pause/resume.
+                P - pause and
+                R- resume.
                 ]]>
             </Text>
         </VBox>

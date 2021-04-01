@@ -10,9 +10,26 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.*;
+
 public class Controller {
+    public static Connection conn;
+    public static void dataBase(){
+        try{
+            conn = DriverManager.getConnection("JDBC:sqlite:highscore.db");
+            Statement query = conn.createStatement();
+            query.execute("CREATE TABLE IF NOT EXISTS scores(hs INTEGER)");}
+        catch(SQLException e){
+            System.out.println("exception "+e);
+        }
+
+    }
     @FXML
     Button beginGame;
+
+
     @FXML
     public void changeScreen(ActionEvent event) throws Exception {
 
