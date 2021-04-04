@@ -4,27 +4,37 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.*;
 
-public class Controller implements Initializable {
-    @FXML
-    private TextField gameOver;
+public class Controller {
+    //creates connection
+    String hs;
+    public static Connection conn;
+    //creates new database
+    public static void dataBase() {
+        try {
+            conn = DriverManager.getConnection("JDBC:sqlite:highscore.db");
+            Statement query = conn.createStatement();
+            query.execute("CREATE TABLE IF NOT EXISTS scores(hs INTEGER)");
+        } catch (SQLException e) {
+            System.out.println("exception " + e);
+        }
+    }
+
+    //button to start game
     @FXML
     Button beginGame;
-    Rectangle r = new Rectangle(5, 5);
-    static String input = "";
-
+    //changes screen if begin game button clicked
     @FXML
     public void changeScreen(ActionEvent event) throws Exception {
 
@@ -32,34 +42,21 @@ public class Controller implements Initializable {
         Parent root;
         if (event.getSource() == beginGame) {
             stage = (Stage) beginGame.getScene().getWindow();
-            root = new gameScreen();
-            //root = FXMLLoader.load(getClass().getResource("test.fxml"));
-
-
+            //create a new object of Game
+            Game g = new Game();
+            root = g;
+            Scene scene = new Scene(root);
+            g.setUp();
+            stage.setScene(scene);
+            stage.show();
         } else {
             stage = (Stage) beginGame.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            //create new object of Scene
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            //show the scene
+            stage.show();
         }
-        Scene scene = new Scene(root);
-        scene.setOnKeyReleased(
-                new EventHandler<KeyEvent>() {
-                    @Override
-                    public void handle(KeyEvent keyEvent) {
-                        input = keyEvent.getCode().toString();
-                    }
-                }
-
-        );
-        stage.setScene(scene);
-        stage.show();
-
-
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }
-
-

@@ -1,54 +1,32 @@
 package sample;
 
-import java.text.Normalizer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Timer;
-import java.util.TimerTask;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Main extends Application{
-    // The variables
-    public static final int MOVE = 25;
-    public static final int SIZE = 25;
-    public static int XMAX = SIZE * 14;
-    public static int YMAX = SIZE * 19;
-    public static int[][] MESH = new int[XMAX / SIZE][YMAX / SIZE];
-    private static Pane group = new Pane();
-    private static sample.Bricks object;
-    private static Scene scene = new Scene(group, XMAX + 150, YMAX);
-    public static int score = 0;
-    private static int top = 0;
-    private static boolean game = true;
-    //private static sample.Bricks nextObj = sample.Controller.makeRect();
-    private static int linesNo = 0;
+public class Main extends Application {
+    //makes database
+    public static void makeDB(){
+        Controller.dataBase();
+    }
 
+    //sets scene to start on fxml
     @Override
     public void start(Stage primaryStage) throws Exception{
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Tetris Game Clone");
-
         Scene scene = new Scene(root,350,475);
         primaryStage.setScene(scene);
+        //show the first scene
         primaryStage.show();
+
     }
-
-
+    //create the database and launch game
     public static void main(String[] args) {
+        makeDB();
         launch(args);
     }
 }

@@ -1,19 +1,10 @@
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.Group?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.shape.* ?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.RowConstraints?>
+
 <?import javafx.scene.text.Font?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="1" vgap="20" style="-fx-background-color: lightblue">
@@ -44,7 +35,8 @@
             </Text>
             <Text styleClass="helpInfo" wrappingWidth="150">
                 <![CDATA[
-                P - pause/resume.
+                P - pause and
+                R- resume.
                 ]]>
             </Text>
         </VBox>
